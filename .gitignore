@@ -1,0 +1,12 @@
+# folders: trailing slash, matches at any depth
+.venv/
+__pycache__/
+
+data/
+
+# only the one at the repo root: leading slash
+/build/
+
+# a single file, and a wildcard pattern
+.env
+*.log
