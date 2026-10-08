@@ -1,0 +1,10 @@
+
+share of novel attacks whose nearest training record (by fidelity) is an attack, mean ± SD over 5 seeds:
+               mean    std
+N  encoding               
+4  amplitude  0.412  0.058
+   angle_ry   0.389  0.016
+8  amplitude  0.393  0.029
+   angle_ry   0.361  0.029
+16 amplitude  0.395  0.018
+   angle_ry   0.380  0.020

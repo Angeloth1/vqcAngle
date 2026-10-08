@@ -1,0 +1,26 @@
+
+##########################################################################################
+STAGE 2  angle-arm decomposition (seed 0, 2000 train / 2000 eval records)
+##########################################################################################
+
+n = 8   (37 readout columns)
+  kernel C=1                                                 acc 0.9595 [0.9510,0.9680]   vs parity +2.50 pts [+1.60,+3.40]
+  kernel C=100                                               acc 0.9810 [0.9750,0.9870]   vs parity +4.65 pts [+3.60,+5.75]
+  VQC parity (global), trained                               acc 0.9345 [0.9230,0.9450]   vs parity +0.00 pts [+0.00,+0.00]
+  VQC parity theta + refit linear head (frozen theta)        acc 0.9490 [0.9390,0.9585]   vs parity +1.45 pts [+0.60,+2.35]
+  VQC linear head, co-trained                                acc 0.9610 [0.9520,0.9690]   vs parity +2.65 pts [+1.80,+3.55]
+  gap  VQC parity (global), trained     - kernel C=1  : -2.50 pts [-3.40,-1.60]
+  gap  VQC linear head, co-trained      - kernel C=1  : +0.15 pts [-0.40,+0.70]
+  gap  VQC parity (global), trained     - kernel C=100: -4.65 pts [-5.75,-3.60]
+  gap  VQC linear head, co-trained      - kernel C=100: -2.00 pts [-2.80,-1.35]
+
+n = 16   (137 readout columns)
+  kernel C=1                                                 acc 0.9610 [0.9520,0.9695]   vs parity +4.30 pts [+3.20,+5.45]
+  kernel C=100                                               acc 0.9840 [0.9785,0.9890]   vs parity +6.60 pts [+5.45,+7.85]
+  VQC parity (global), trained                               acc 0.9180 [0.9055,0.9295]   vs parity +0.00 pts [+0.00,+0.00]
+  VQC parity theta + refit linear head (frozen theta)        acc 0.9465 [0.9365,0.9560]   vs parity +2.85 pts [+1.95,+3.75]
+  VQC linear head, co-trained                                acc 0.9665 [0.9580,0.9745]   vs parity +4.85 pts [+3.70,+6.00]
+  gap  VQC parity (global), trained     - kernel C=1  : -4.30 pts [-5.45,-3.20]
+  gap  VQC linear head, co-trained      - kernel C=1  : +0.55 pts [+0.00,+1.10]
+  gap  VQC parity (global), trained     - kernel C=100: -6.60 pts [-7.85,-5.45]
+  gap  VQC linear head, co-trained      - kernel C=100: -1.75 pts [-2.45,-1.10]

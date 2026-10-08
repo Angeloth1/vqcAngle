@@ -1,0 +1,78 @@
+
+==========================================================================================
+n = 8
+==========================================================================================
+data: train 20153 test 5039 KDDTest+ 22544 novel 3759 explained variance 0.6511   (notebook printed 0.6511)
+readout columns: 37   first 12 bitmasks in keep order: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 16, 17]  weights [1, 1, 2, 1, 2, 2, 1, 2, 2, 2, 1, 2]
+  -> keep order interleaves singles and pairs: True
+kernel SVM C=    1: recomputed 0.9595   notebook checkpoint 0.9595   OK
+kernel SVM C=  100: recomputed 0.9810   notebook checkpoint 0.9810   OK
+exact parity (global, as in notebook)    acc 0.9345  95% record-bootstrap [0.9230, 0.9450]   (2000 eval records, ONE seed)
+exact linear head (37/137 cols)          acc 0.9610  95% record-bootstrap [0.9520, 0.9690]   (2000 eval records, ONE seed)
+  (diagnostic) q0-parity decision on the parity-trained theta: acc 0.9025
+  loss at checkpoint: parity 0.2957  head 0.1116;  evals 400 / 400;  train time 0.5 / 0.6 min
+  head coefficient L2 norm 9.53   max |coef| 3.82   intercept [4.2903]
+parity finite-shot curve from checkpoint (20 repeats/point):
+            mean     std
+shots                   
+100.0     0.9245  0.0027
+1000.0    0.9293  0.0019
+10000.0   0.9325  0.0012
+100000.0  0.9333  0.0009
+inf       0.9345     NaN
+head finite-shot values printed by the notebook (checkpoint):
+           mean     std
+shots                  
+1000.0   0.5076  0.0079
+10000.0  0.5004  0.0017
+inf      0.9610     NaN
+  shots=  1000: median logit-noise sd 0.266   median |logit margin| 3.730   records with margin < 1 sd: 0.012
+  shots= 10000: median logit-noise sd 0.084   median |logit margin| 3.730   records with margin < 1 sd: 0.006
+head shots recomputed in 11s
+exact head accuracy on the same 500-record prefix: 0.9740
+                  mean     std
+order    shots                
+keep     1000   0.9716  0.0046
+         10000  0.9728  0.0018
+notebook 1000   0.5076  0.0079
+         10000  0.5004  0.0017
+(n=8 done in 12s)
+
+==========================================================================================
+n = 16
+==========================================================================================
+data: train 20153 test 5039 KDDTest+ 22544 novel 3759 explained variance 0.8550   (notebook printed 0.855)
+readout columns: 137   first 12 bitmasks in keep order: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 16, 17]  weights [1, 1, 2, 1, 2, 2, 1, 2, 2, 2, 1, 2]
+  -> keep order interleaves singles and pairs: True
+kernel SVM C=    1: recomputed 0.9610   notebook checkpoint 0.9610   OK
+kernel SVM C=  100: recomputed 0.9840   notebook checkpoint 0.9840   OK
+exact parity (global, as in notebook)    acc 0.9180  95% record-bootstrap [0.9055, 0.9295]   (2000 eval records, ONE seed)
+exact linear head (37/137 cols)          acc 0.9665  95% record-bootstrap [0.9580, 0.9745]   (2000 eval records, ONE seed)
+  (diagnostic) q0-parity decision on the parity-trained theta: acc 0.9020
+  loss at checkpoint: parity 0.2961  head 0.0996;  evals 400 / 400;  train time 143.0 / 129.6 min
+  head coefficient L2 norm 8.80   max |coef| 3.15   intercept [6.35584261]
+parity finite-shot curve from checkpoint (20 repeats/point):
+            mean     std
+shots                   
+100.0     0.9137  0.0016
+1000.0    0.9174  0.0017
+10000.0   0.9174  0.0010
+100000.0  0.9183  0.0008
+inf       0.9180     NaN
+head finite-shot values printed by the notebook (checkpoint):
+           mean     std
+shots                  
+1000.0   0.4784  0.0022
+10000.0  0.4796  0.0017
+inf      0.9665     NaN
+  shots=  1000: median logit-noise sd 0.226   median |logit margin| 3.922   records with margin < 1 sd: 0.002
+  shots= 10000: median logit-noise sd 0.072   median |logit margin| 3.922   records with margin < 1 sd: 0.002
+head shots recomputed in 43s
+exact head accuracy on the same 500-record prefix: 0.9780
+                  mean     std
+order    shots                
+keep     1000   0.9768  0.0018
+         10000  0.9784  0.0009
+notebook 1000   0.4784  0.0022
+         10000  0.4796  0.0017
+(n=16 done in 110s)

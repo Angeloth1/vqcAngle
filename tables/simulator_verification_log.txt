@@ -1,0 +1,25 @@
+# Simulator verification, run 2026-09-30T10:14Z, qiskit 2.3.0, qiskit-machine-learning 0.9.0
+
+## verify_fastsim.py (amplitude fast path vs qiskit_machine_learning SamplerQNN)
+verifying the matmul forward pass against Qiskit
+
+  n=2 reps=3:  max|p_qiskit - p_fast| = 1.40e-12   ||UU^T - I|| = 4.44e-16   PASS
+  n=3 reps=1:  max|p_qiskit - p_fast| = 1.90e-12   ||UU^T - I|| = 4.44e-16   PASS
+  n=4 reps=5:  max|p_qiskit - p_fast| = 5.64e-12   ||UU^T - I|| = 6.66e-16   PASS
+  n=4 reps=17:  max|p_qiskit - p_fast| = 4.22e-12   ||UU^T - I|| = 8.88e-16   PASS
+  n=5 reps=4:  max|p_qiskit - p_fast| = 7.87e-12   ||UU^T - I|| = 7.77e-16   PASS
+
+ALL PASS -- fast path is exact
+
+## notebook/angle_fast_v2.py (angle simulator vs qiskit Statevector)
+verifying angle simulator against Qiskit
+
+  n=3 reps=2:  probs 6.66e-16   <Z_S> 8.88e-16   parity 4.44e-16   PASS
+  n=4 reps=1:  probs 1.39e-16   <Z_S> 3.89e-16   parity 3.33e-16   PASS
+  n=5 reps=3:  probs 1.11e-16   <Z_S> 4.44e-16   parity 1.94e-16   PASS
+  n=6 reps=2:  probs 8.33e-17   <Z_S> 4.44e-16   parity 1.80e-16   PASS
+
+ALL PASS
+
+n=16: 137 readout columns (16 single + 120 pair + parity)
+default chunk: 15 records

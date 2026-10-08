@@ -1,0 +1,41 @@
+=== A. training-set size effect on the published circuit (reps=5, parity q0), internal accuracy
+  internal  full 0.8560±0.0294   2000-rec 0.8156±0.0171   diff +4.05 pts  95%CI[+0.38,+7.71]  Welch p=0.035  g=1.52
+  novel     full 0.6210±0.0866   2000-rec 0.5423±0.0788   diff +7.87 pts  95%CI[-4.22,+19.97]  Welch p=0.171  g=0.86
+  (KDDTest+ not recorded in exp4)
+
+=== B. classical baselines at the matched 2000-record protocol (exp4, rho=0) vs Table 3
+  logreg_17p  internal  this 0.947±0.006  Table3 0.927±0.005  diff +2.0 pts  Welch p=0.000
+  logreg_17p  novel     this 0.496±0.014  Table3 0.482±0.017  diff +1.4 pts  Welch p=0.206
+  mlp4_73p    internal  this 0.958±0.007  Table3 0.958±0.003  diff +0.0 pts  Welch p=0.960
+  mlp4_73p    novel     this 0.412±0.009  Table3 0.395±0.120  diff +1.7 pts  Welch p=0.763
+  mlp1_19p    internal  this 0.787±0.231  Table3 0.850±0.176  diff -6.3 pts  Welch p=0.639
+  mlp1_19p    novel     this 0.251±0.230  Table3 0.393±0.237  diff -14.2 pts  Welch p=0.366
+  MLP-1 per seed (degenerate runs predict the negative class only):
+  seed  internal  novel_recall
+    0     0.534         0.000
+    1     0.954         0.423
+    2     0.950         0.437
+    3     0.962         0.397
+    4     0.534         0.000
+
+=== C. distance from the kernel reference to each classifier rung (accuracy points; positive = rung BELOW reference)
+  amplitude N=16  C=    1  ref 0.9606  frozen_theta/parity          0.8560  gap +10.46 pts  95%CI[+6.81,+14.10]
+  amplitude N=16  C=    1  ref 0.9606  frozen_theta/best_fixed      0.8921  gap  +6.85 pts  95%CI[+5.74,+7.95]
+  amplitude N=16  C=    1  ref 0.9606  frozen_theta/linear_head     0.9078  gap  +5.28 pts  95%CI[+4.41,+6.15]
+  amplitude N=16  C=    1  ref 0.9606  frozen_theta/mlp_head        0.9829  gap  -2.23 pts  95%CI[-2.64,-1.82]
+  amplitude N=16  C=    1  ref 0.9606  cotrained/linear_head        0.9481  gap  +1.25 pts  95%CI[+0.41,+2.08]
+  amplitude N=16  C=    1  ref 0.9606  reference/logreg_on_xhat     0.9512  gap  +0.94 pts  95%CI[+0.53,+1.36]
+  amplitude N=16  C=  100  ref 0.9734  frozen_theta/parity          0.8560  gap +11.74 pts  95%CI[+8.09,+15.38]
+  amplitude N=16  C=  100  ref 0.9734  frozen_theta/best_fixed      0.8921  gap  +8.13 pts  95%CI[+7.02,+9.23]
+  amplitude N=16  C=  100  ref 0.9734  frozen_theta/linear_head     0.9078  gap  +6.56 pts  95%CI[+5.70,+7.43]
+  amplitude N=16  C=  100  ref 0.9734  frozen_theta/mlp_head        0.9829  gap  -0.95 pts  95%CI[-1.32,-0.59]
+  amplitude N=16  C=  100  ref 0.9734  cotrained/linear_head        0.9481  gap  +2.53 pts  95%CI[+1.70,+3.36]
+  amplitude N=16  C=  100  ref 0.9734  reference/logreg_on_xhat     0.9512  gap  +2.22 pts  95%CI[+1.85,+2.59]
+  amplitude N=16  C=    1  ref 0.9606  VQC parity trained on the SAME 2000 records (exp4 reps=5)   0.8156  gap +14.50 pts
+  amplitude N=16  C=  100  ref 0.9734  VQC parity trained on the SAME 2000 records (exp4 reps=5)   0.8156  gap +15.78 pts
+
+=== D. other numbers used in the text
+  AUC-0.5 at N=16: {'amplitude': 0.047, 'angle_phase': 0.284, 'angle_ry': 0.255}  ratio angle_ry/amplitude: 5.4  phase/amp: 6.0
+  exp1 training seconds per fit (full split, 150 evals): median 1.22  range [1.05, 1.59]
+  co-trained fit seconds: median 14.2 range [13.5, 14.8]
+  published: 15.6 ± 2.1 min per COBYLA run on 2000 records -> speed-up per run 770x (median), hardware nominally the same CPU model

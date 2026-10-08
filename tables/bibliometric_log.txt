@@ -1,0 +1,53 @@
+OpenAlex works API, retrieved 2026-10-05
+query: title_and_abstract.search:("variational quantum classifier" OR "variational quantum classifiers" OR "variational quantum circuit" OR "variational quantum circuits" OR "quantum neural network" OR "quantum neural networks" OR "parameterized quantum circuit" OR "parameterized quantum circuits" OR "parametrized quantum circuit" OR "parametrized quantum circuits") AND (classification OR classifier OR classifiers)
+years 2022-2025, is_paratext false: 1256 records, 4 of them repeat an id: 1252 works; in scope (phrase + classif- in title/abstract): 962; with abstract: 929; 100 most cited: citations >= 15
+  default      all     n= 929  title or abstract: encoding  29.5%  ansatz  33.0%  training  24.3%  readout  10.4%   | title only: encoding  5.0%  ansatz  4.7%  training  3.1%  readout  1.0%
+  default      top100  n= 100  title or abstract: encoding  32.0%  ansatz  26.0%  training  28.0%  readout  12.0%   | title only: encoding  6.0%  ansatz  3.0%  training  3.0%  readout  2.0%
+  strict       all     n= 929  title or abstract: encoding  17.5%  ansatz  12.2%  training  19.3%  readout   3.9%   | title only: encoding  2.9%  ansatz  1.8%  training  1.8%  readout  0.2%
+  strict       top100  n= 100  title or abstract: encoding  18.0%  ansatz  12.0%  training  23.0%  readout   8.0%   | title only: encoding  3.0%  ansatz  1.0%  training  2.0%  readout  1.0%
+  no-entangle  all     n= 929  title or abstract: encoding  29.5%  ansatz  19.3%  training  24.3%  readout  10.4%   | title only: encoding  5.0%  ansatz  2.9%  training  3.1%  readout  1.0%
+  no-entangle  top100  n= 100  title or abstract: encoding  32.0%  ansatz  16.0%  training  28.0%  readout  12.0%   | title only: encoding  6.0%  ansatz  3.0%  training  3.0%  readout  2.0%
+
+keyword rules:
+  default      encoding  \bencod\w*|\bembedd?ing\w*|\bfeature[- ]maps?\b|\bdata[- ]loading\b|\bre-?upload\w*
+  default      ansatz    \bans[aä]tz\w*|\bexpressib\w*|\bexpressiv\w*|\bcircuit (?:architecture|design|structure|depth|topology)\w*|\barchitecture search\b|\bentangl\w*
+  default      training  \bbarren\b|\btrainab\w*|\bgradient\w*|\boptimi[sz]er\w*|\binitiali[sz]\w*|\blandscape\w*|\boverparametri[sz]\w*
+  default      readout   \bread-?outs?\b|\bobservables?\b|\bmeasurements?\b|\bpost-?processing\b|\boutput (?:layer|decoding|mapping)\w*
+  strict       encoding  \bdata[- ]encoding|\bencoding (?:scheme|method|strateg|technique)\w*|\b(?:amplitude|angle|basis|dense|iqp) (?:encoding|embedding)\b|\bfeature[- ]maps?\b|\bquantum embedding\w*|\bre-?upload\w*
+  strict       ansatz    \bans[aä]tz\w*|\bexpressib\w*|\bcircuit architecture\w*|\barchitecture search\b
+  strict       training  \bbarren plateau\w*|\btrainab\w*|\boptimi[sz]ers?\b|\binitiali[sz]ation\b|\blandscape\w*
+  strict       readout   \bread-?outs?\b|\bobservables?\b|\bmeasurement (?:strateg|scheme|protocol|basis)\w*|\bpost-?processing\b
+  no-entangle  encoding  \bencod\w*|\bembedd?ing\w*|\bfeature[- ]maps?\b|\bdata[- ]loading\b|\bre-?upload\w*
+  no-entangle  ansatz    \bans[aä]tz\w*|\bexpressib\w*|\bexpressiv\w*|\bcircuit (?:architecture|design|structure|depth|topology)\w*|\barchitecture search\b
+  no-entangle  training  \bbarren\b|\btrainab\w*|\bgradient\w*|\boptimi[sz]er\w*|\binitiali[sz]\w*|\blandscape\w*|\boverparametri[sz]\w*
+  no-entangle  readout   \bread-?outs?\b|\bobservables?\b|\bmeasurements?\b|\bpost-?processing\b|\boutput (?:layer|decoding|mapping)\w*
+
+readout matches (default rules) among the 100 most cited, for manual inspection:
+  [ 248] 2024 A versatile single-photon-based quantum computing platform  https://doi.org/10.1038/s41566-024-01403-4
+  [ 246] 2024 Systematic literature review: Quantum machine learning and its applications  https://doi.org/10.1016/j.cosrev.2024.100619
+  [  75] 2023 Quantum Neural Network for Quantum Neural Computing  https://doi.org/10.34133/research.0134
+  [  60] 2022 QuantumNAT  https://doi.org/10.1145/3489517.3530400
+  [  46] 2022 A Multi-Classification Hybrid Quantum Neural Network Using an All-Qubit Multi-Observable Measurement Strategy  https://doi.org/10.3390/e24030394
+  [  26] 2022 An Evaluation of Hardware-Efficient Quantum Neural Networks for Image Data Classification  https://doi.org/10.3390/electronics11030437
+  [  26] 2023 Logarithmic Dimension Reduction for Quantum Neural Networks  https://doi.org/10.1145/3583780.3615240
+  [  26] 2025 Lie-algebraic classical simulations for quantum computing  https://doi.org/10.1103/3y65-f5w6
+  [  25] 2022 Sequential Measurements, Topological Quantum Field Theories, and Topological Quantum Neural Networks  https://doi.org/10.1002/prop.202200104
+  [  19] 2025 Learning to Measure Quantum Neural Networks  https://doi.org/10.1109/icasspw65056.2025.11011001
+  [  18] 2023 Classical splitting of parametrized quantum circuits  https://doi.org/10.1007/s42484-023-00118-z
+  [  17] 2024 Ensemble-learning error mitigation for variational quantum shallow-circuit classifiers  https://doi.org/10.1103/physrevresearch.6.013027
+
+ties at the cut: 5 works have 15 citations (ranks 98-102), 3 of them among the 100 most cited; ties are broken by OpenAlex id (ascending, as text)
+  counts among the 100 most cited, minimum-maximum over every choice of the tied works:
+    default      title or abstract: encoding 31-33  ansatz 25-27  training 27-28  readout 12-12   | title only: encoding 6-6  ansatz 3-3  training 3-3  readout 2-2
+    strict       title or abstract: encoding 18-19  ansatz 12-13  training 22-23  readout 8-8   | title only: encoding 3-3  ansatz 1-1  training 2-2  readout 1-1
+    no-entangle  title or abstract: encoding 31-33  ansatz 15-17  training 27-28  readout 12-12   | title only: encoding 6-6  ansatz 3-3  training 3-3  readout 2-2
+
+manual check of the 12 readout matches among the 100 most cited (column manual_readout): 5 concern the readout of a classifier, 7 use the words in another sense
+
+same title counted once (lower case, characters other than a-z and 0-9 read as spaces; the most cited record kept): 836 works, 93 records merged; 100 most cited: citations >= 15
+  default      all     n= 836  title or abstract: encoding  29.4%  ansatz  33.3%  training  23.9%  readout   9.7%   | title only: encoding  5.0%  ansatz  4.3%  training  2.9%  readout  0.8%
+  default      top100  n= 100  title or abstract: encoding  32.0%  ansatz  26.0%  training  28.0%  readout  12.0%   | title only: encoding  6.0%  ansatz  3.0%  training  3.0%  readout  2.0%
+  strict       all     n= 836  title or abstract: encoding  17.5%  ansatz  12.1%  training  18.9%  readout   3.3%   | title only: encoding  3.1%  ansatz  1.7%  training  1.8%  readout  0.2%
+  strict       top100  n= 100  title or abstract: encoding  18.0%  ansatz  12.0%  training  23.0%  readout   8.0%   | title only: encoding  3.0%  ansatz  1.0%  training  2.0%  readout  1.0%
+  no-entangle  all     n= 836  title or abstract: encoding  29.4%  ansatz  19.1%  training  23.9%  readout   9.7%   | title only: encoding  5.0%  ansatz  2.6%  training  2.9%  readout  0.8%
+  no-entangle  top100  n= 100  title or abstract: encoding  32.0%  ansatz  16.0%  training  28.0%  readout  12.0%   | title only: encoding  6.0%  ansatz  3.0%  training  3.0%  readout  2.0%

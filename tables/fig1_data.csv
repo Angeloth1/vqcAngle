@@ -1,0 +1,42 @@
+panel,encoding,N,qubits,variant,acc,spread,spread_kind
+b_classifier_level,amplitude,4,2,frozen head,0.8648541377257393,0.032919424772664706,SD over 5 seeds
+b_classifier_level,amplitude,4,2,global parity,0.824171462591784,0.030510352538364517,SD over 5 seeds
+b_classifier_level,amplitude,4,2,co-trained head,0.8849374875967454,0.0040070614019759015,SD over 5 seeds
+b_classifier_level,amplitude,4,2,qubit-0 parity,0.8041674935503076,0.002600403783337931,SD over 5 seeds
+b_classifier_level,angle,4,4,frozen head,0.9274856122246478,0.0034675205518124113,SD over 5 seeds
+b_classifier_level,angle,4,4,global parity,0.9064893828140506,0.02480904928452215,SD over 5 seeds
+b_classifier_level,angle,4,4,co-trained head,0.9297876562810081,0.0020595080474887467,SD over 5 seeds
+b_classifier_level,angle,4,4,qubit-0 parity,0.8873982933121652,0.006271839103037362,SD over 5 seeds
+a_encoding_level,amplitude,4,2,"fidelity-kernel SVM, C=1",0.8977574915657869,0.001777226686028018,SD over 5 seeds
+a_encoding_level,amplitude,4,2,"fidelity-kernel SVM, C=100",0.8963286366342528,0.005191333285542345,SD over 5 seeds
+a_encoding_level,angle_ry,4,4,"fidelity-kernel SVM, C=1",0.9328041278031355,0.0003868543101730945,SD over 5 seeds
+a_encoding_level,angle_ry,4,4,"fidelity-kernel SVM, C=100",0.9350267910299663,0.0002262701776342611,SD over 5 seeds
+both_reference_line,logreg_x,4,0,logistic regression,0.9262155189521731,0.0010995749297237408,SD over 5 seeds
+both_reference_line,logreg_xhat,4,0,logistic regression,0.9232784282595754,0.0025321115947984627,SD over 5 seeds
+b_classifier_level,amplitude,8,3,frozen head,0.9031553879738043,0.007772635851385633,SD over 5 seeds
+b_classifier_level,amplitude,8,3,global parity,0.8732288152411192,0.010004031832602138,SD over 5 seeds
+b_classifier_level,amplitude,8,3,co-trained head,0.9380432625520937,0.006906588365677772,SD over 5 seeds
+b_classifier_level,amplitude,8,3,qubit-0 parity,0.8813653502679104,0.012244187392840306,SD over 5 seeds
+b_classifier_level,angle,8,8,frozen head,0.9503076007144274,0.00303118896370267,SD over 5 seeds
+b_classifier_level,angle,8,8,global parity,0.9181980551696766,0.012061903333653983,SD over 5 seeds
+b_classifier_level,angle,8,8,co-trained head,0.9597142290136931,0.001478434652287406,SD over 5 seeds
+b_classifier_level,angle,8,8,qubit-0 parity,0.8854137725739235,0.003501428013092937,SD over 5 seeds
+a_encoding_level,amplitude,8,3,"fidelity-kernel SVM, C=1",0.9445524905735265,0.004990191734804782,SD over 5 seeds
+a_encoding_level,amplitude,8,3,"fidelity-kernel SVM, C=100",0.9679301448700139,0.0021539136417884036,SD over 5 seeds
+a_encoding_level,angle_ry,8,8,"fidelity-kernel SVM, C=1",0.9564993054177415,0.0009244544313437391,SD over 5 seeds
+a_encoding_level,angle_ry,8,8,"fidelity-kernel SVM, C=100",0.9786068664417543,0.0007987541892239613,SD over 5 seeds
+both_reference_line,logreg_x,8,0,logistic regression,0.9521333597936097,0.0019815417211933787,SD over 5 seeds
+both_reference_line,logreg_xhat,8,0,logistic regression,0.9403453066084542,0.00588469797649609,SD over 5 seeds
+b_classifier_level,amplitude,16,4,frozen head,0.9148243699146656,0.0034355716720587464,SD over 5 seeds
+b_classifier_level,amplitude,16,4,global parity,0.8884699345108157,0.007543789564893114,SD over 5 seeds
+b_classifier_level,amplitude,16,4,co-trained head,0.9487993649533639,0.004025692156201819,SD over 5 seeds
+b_classifier_level,amplitude,16,4,qubit-0 parity,0.8793411391149037,0.018107596327933198,SD over 5 seeds
+b_classifier_level,angle,16,16,frozen head,0.946616392141298,,single seed (0)
+b_classifier_level,angle,16,16,global parity,0.919031553879738,,single seed (0)
+b_classifier_level,angle,16,16,co-trained head,0.9654693391545942,,single seed (0)
+a_encoding_level,amplitude,16,4,"fidelity-kernel SVM, C=1",0.961897201825759,0.0024826346503664604,SD over 5 seeds
+a_encoding_level,amplitude,16,4,"fidelity-kernel SVM, C=100",0.974161539988093,0.0008808232197329745,SD over 5 seeds
+a_encoding_level,angle_ry,16,16,"fidelity-kernel SVM, C=1",0.9589204207183964,0.0012472519438357643,SD over 5 seeds
+a_encoding_level,angle_ry,16,16,"fidelity-kernel SVM, C=100",0.9809882913276443,0.0005506821562021346,SD over 5 seeds
+both_reference_line,logreg_x,16,0,logistic regression,0.9557054971224449,0.002444265804755303,SD over 5 seeds
+both_reference_line,logreg_xhat,16,0,logistic regression,0.9467354633855924,0.005761265706421586,SD over 5 seeds

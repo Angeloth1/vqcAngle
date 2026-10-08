@@ -1,0 +1,69 @@
+qiskit 2.3.0; bases {'native': ['cx', 'rz', 'sx', 'x'], 'ucx': ['cx', 'u']}; optimization_level=3; seed_transpiler=7
+    topology  N                 arm  qubits                                        part  depth_native_med  depth_native_min  depth_native_max  depth_ucx_med  depth_ucx_min  depth_ucx_max  cx_med  cx_min  cx_max  oneq_native_med
+  all-to-all  4           amplitude       2                           state preparation               7.0                 6                 8            3.0              3              3     1.0       1       1              9.0
+  all-to-all  4           amplitude       2                full circuit (prep + ansatz)              13.0                12                13            5.0              5              5     2.0       2       2             17.0
+  all-to-all  4           amplitude       2        ansatz alone (RealAmplitudes reps=5)              14.0                14                14            7.0              7              7     3.0       3       3             18.0
+  all-to-all  4            angle-RY       4                           state preparation               4.0                 4                 4            1.0              1              1     0.0       0       0             16.0
+  all-to-all  4            angle-RY       4  ansatz alone (n_local RY+CX linear reps=2)              17.0                17                17            8.0              8              8     6.0       6       6             48.0
+  all-to-all  4            angle-RY       4                full circuit (prep + ansatz)              23.0                23                23            8.0              8              8     6.0       6       6             55.0
+  all-to-all  4 amplitude (matched)       2                full circuit (prep + ansatz)              13.0                12                13            5.0              5              5     2.0       2       2             17.0
+  all-to-all  4 amplitude (matched)       2  ansatz alone (n_local RY+CX linear reps=5)              14.0                14                14            7.0              7              7     3.0       3       3             18.0
+  all-to-all  8           amplitude       3                           state preparation              17.0                13                18            9.0              9              9     4.0       4       4             18.0
+  all-to-all  8           amplitude       3                full circuit (prep + ansatz)              48.0                45                50           24.0             24             24    14.0      14      14             86.0
+  all-to-all  8           amplitude       3        ansatz alone (RealAmplitudes reps=5)              34.0                34                34           16.0             16             16    10.0      10      10             72.0
+  all-to-all  8            angle-RY       8                           state preparation               4.0                 4                 4            1.0              1              1     0.0       0       0             32.0
+  all-to-all  8            angle-RY       8  ansatz alone (n_local RY+CX linear reps=2)              21.0                21                21           12.0             12             12    14.0      14      14             96.0
+  all-to-all  8            angle-RY       8                full circuit (prep + ansatz)              27.0                27                27           12.0             12             12    14.0      14      14            103.0
+  all-to-all  8 amplitude (matched)       3                full circuit (prep + ansatz)              60.0                57                62           30.0             30             30    18.0      18      18            110.0
+  all-to-all  8 amplitude (matched)       3  ansatz alone (n_local RY+CX linear reps=7)              46.0                46                46           22.0             22             22    14.0      14      14             96.0
+  all-to-all 16           amplitude       4                           state preparation              42.0                35                47           23.0             23             23    11.0      11      11             40.0
+  all-to-all 16           amplitude       4                full circuit (prep + ansatz)              74.0                67                79           38.0             38             38    26.0      26      26            132.0
+  all-to-all 16           amplitude       4        ansatz alone (RealAmplitudes reps=5)              35.0                35                35           17.0             17             17    15.0      15      15             96.0
+  all-to-all 16            angle-RY      16                           state preparation               4.0                 4                 4            1.0              1              1     0.0       0       0             64.0
+  all-to-all 16            angle-RY      16  ansatz alone (n_local RY+CX linear reps=2)              29.0                29                29           20.0             20             20    30.0      30      30            192.0
+  all-to-all 16            angle-RY      16                full circuit (prep + ansatz)              35.0                35                35           20.0             20             20    30.0      30      30            199.0
+  all-to-all 16 amplitude (matched)       4                full circuit (prep + ansatz)             111.0               104               116           57.0             57             57    44.0      44      44            228.0
+  all-to-all 16 amplitude (matched)       4 ansatz alone (n_local RY+CX linear reps=11)              71.0                71                71           35.0             35             35    33.0      33      33            192.0
+linear chain  4           amplitude       2                           state preparation               7.0                 6                 8            3.0              3              3     1.0       1       1              9.0
+linear chain  4           amplitude       2                full circuit (prep + ansatz)              13.0                12                13            5.0              5              5     2.0       2       2             17.0
+linear chain  4           amplitude       2        ansatz alone (RealAmplitudes reps=5)              14.0                14                14            7.0              7              7     3.0       3       3             18.0
+linear chain  4            angle-RY       4                           state preparation               4.0                 4                 4            1.0              1              1     0.0       0       0             16.0
+linear chain  4            angle-RY       4  ansatz alone (n_local RY+CX linear reps=2)              17.0                17                17            8.0              8              8     6.0       6       6             48.0
+linear chain  4            angle-RY       4                full circuit (prep + ansatz)              23.0                23                23            8.0              8              8     6.0       6       6             55.0
+linear chain  4 amplitude (matched)       2                full circuit (prep + ansatz)              13.0                12                13            5.0              5              5     2.0       2       2             17.0
+linear chain  4 amplitude (matched)       2  ansatz alone (n_local RY+CX linear reps=5)              14.0                14                14            7.0              7              7     3.0       3       3             18.0
+linear chain  8           amplitude       3                           state preparation              21.0                18                25           11.0             11             11     5.0       5       5             26.0
+linear chain  8           amplitude       3                full circuit (prep + ansatz)              59.0                55                61           28.0             28             28    16.0      16      16            102.0
+linear chain  8           amplitude       3        ansatz alone (RealAmplitudes reps=5)              34.0                34                34           16.0             16             16    10.0      10      10             72.0
+linear chain  8            angle-RY       8                           state preparation               4.0                 4                 4            1.0              1              1     0.0       0       0             32.0
+linear chain  8            angle-RY       8  ansatz alone (n_local RY+CX linear reps=2)              21.0                21                21           12.0             12             12    14.0      14      14             96.0
+linear chain  8            angle-RY       8                full circuit (prep + ansatz)              27.0                27                27           12.0             12             12    14.0      14      14            103.0
+linear chain  8 amplitude (matched)       3                full circuit (prep + ansatz)              66.0                65                67           35.0             35             35    24.0      24      24            110.0
+linear chain  8 amplitude (matched)       3  ansatz alone (n_local RY+CX linear reps=7)              46.0                46                46           22.0             22             22    14.0      14      14             96.0
+linear chain 16           amplitude       4                           state preparation              52.0                45                57           31.0             31             31    19.0      19      19             58.0
+linear chain 16           amplitude       4                full circuit (prep + ansatz)              86.0                80                91           44.0             44             44    36.0      36      36            151.0
+linear chain 16           amplitude       4        ansatz alone (RealAmplitudes reps=5)              35.0                35                35           17.0             17             17    15.0      15      15             96.0
+linear chain 16            angle-RY      16                           state preparation               4.0                 4                 4            1.0              1              1     0.0       0       0             64.0
+linear chain 16            angle-RY      16  ansatz alone (n_local RY+CX linear reps=2)              29.0                29                29           20.0             20             20    30.0      30      30            192.0
+linear chain 16            angle-RY      16                full circuit (prep + ansatz)              35.0                35                35           20.0             20             20    30.0      30      30            199.0
+linear chain 16 amplitude (matched)       4                full circuit (prep + ansatz)             121.0               115               125           64.0             63             64    54.0      54      54            242.0
+linear chain 16 amplitude (matched)       4 ansatz alone (n_local RY+CX linear reps=11)              71.0                71                71           35.0             35             35    33.0      33      33            192.0
+
+scaling of amplitude state preparation with the number of qubits (all-to-all; random real vectors, median of 5)
+ qubits   N    cx  depth_native  depth_ucx  cx_2n_minus_n_minus_1
+      2   4   1.0           7.0        3.0                      1
+      3   8   4.0          16.0        9.0                      4
+      4  16  11.0          38.0       23.0                     11
+      5  32  26.0         103.0       53.0                     26
+      6  64  57.0         211.0      115.0                     57
+      7 128 120.0         477.0      241.0                    120
+      8 256 247.0        1047.0      495.0                    247
+angle encoding: N qubits, N single-qubit RY gates, 0 two-qubit gates, depth 1, for every N.
+
+circuit executions to train on a shot-based device = evaluations x records x shots (per COBYLA objective call, whole training subsample)
+  amplitude anchor, [1] Table 3 protocol (150 evals, 2000 records)   shots=   100: 3.00e+07 executions
+  amplitude anchor, [1] Table 3 protocol (150 evals, 2000 records)   shots=  1000: 3.00e+08 executions
+  amplitude anchor, [1] Table 3 protocol (150 evals, 2000 records)   shots= 10000: 3.00e+09 executions
+  angle, notebook protocol (400 evals, 2000 records)                 shots=   100: 8.00e+07 executions
+  angle, notebook protocol (400 evals, 2000 records)                 shots=  1000: 8.00e+08 executions
+  angle, notebook protocol (400 evals, 2000 records)                 shots= 10000: 8.00e+09 executions

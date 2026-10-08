@@ -1,0 +1,13 @@
+records: train 20153  internal 5039  KDDTest+ 22544  novel 3752
+training kernel 20153 x 20153 built in 1.4 s
+C =     1: fit + scoring 3.5 s  support vectors 1839  train 0.9734  internal 0.9700 (4888/5039)  KDDTest+ 0.7945  novel recall 0.4488 (1684/3752)
+C =   100: fit + scoring 4.3 s  support vectors 976  train 0.9864  internal 0.9835 (4956/5039)  KDDTest+ 0.7898  novel recall 0.4323 (1622/3752)
+
+E1 readouts against the reference on the same records (internal accuracy; points, + = below the reference)
+  cotrained/linear_head        0.9481   C=1      +2.19   C=100    +3.54
+  frozen_theta/best_fixed      0.8921   C=1      +7.79   C=100    +9.14
+  frozen_theta/global_parity   0.5400   C=1     +43.00   C=100   +44.35
+  frozen_theta/linear_head     0.9078   C=1      +6.23   C=100    +7.58
+  frozen_theta/mlp_head        0.9829   C=1      -1.29   C=100    +0.06
+  frozen_theta/parity          0.8560   C=1     +11.40   C=100   +12.75
+  reference/logreg_on_xhat     0.9512   C=1      +1.89   C=100    +3.23

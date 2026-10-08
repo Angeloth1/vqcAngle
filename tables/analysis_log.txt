@@ -1,0 +1,259 @@
+
+====================================================================================================
+EXP1  readout ladder  (5 seeds; seed = COBYLA initialisation only, data split fixed)
+====================================================================================================
+seeds per arm: {'cotrained/linear_head': 5, 'frozen_theta/best_fixed': 5, 'frozen_theta/global_parity': 5, 'frozen_theta/linear_head': 5, 'frozen_theta/mlp_head': 5, 'frozen_theta/parity': 5, 'reference/logreg_on_xhat': 5}
+                       arm  internal_mean  internal_sd  kddtest_mean  kddtest_sd  novel_recall_mean  novel_recall_sd
+       frozen_theta/parity         0.8560       0.0294        0.7045      0.0593             0.6210           0.0866
+frozen_theta/global_parity         0.5400       0.1354        0.4724      0.0703             0.5485           0.2192
+   frozen_theta/best_fixed         0.8921       0.0090        0.7908      0.0248             0.6400           0.0845
+  frozen_theta/linear_head         0.9078       0.0071        0.7987      0.0152             0.6218           0.0264
+     frozen_theta/mlp_head         0.9829       0.0015        0.7764      0.0140             0.3766           0.0738
+     cotrained/linear_head         0.9481       0.0068        0.7972      0.0139             0.5732           0.0460
+  reference/logreg_on_xhat         0.9512       0.0000        0.7634      0.0000             0.4789           0.0000
+
+-- paired vs the published decoder (parity = b mod 2 = qubit 0) on the SAME frozen theta / same seed
+                       arm       metric  diff_vs_parity   ci_lo   ci_hi  paired_p      dz  welch_p
+frozen_theta/global_parity     internal         -0.3160 -0.5002 -0.1318    0.0089 -1.7042   0.0055
+frozen_theta/global_parity      kddtest         -0.2321 -0.3636 -0.1005    0.0081 -1.7525   0.0005
+frozen_theta/global_parity novel_recall         -0.0725 -0.2897  0.1447    0.4066 -0.3315   0.5210
+   frozen_theta/best_fixed     internal          0.0361  0.0093  0.0628    0.0201  1.3392   0.0495
+   frozen_theta/best_fixed      kddtest          0.0864  0.0009  0.1718    0.0485  1.0041   0.0275
+   frozen_theta/best_fixed novel_recall          0.0190 -0.0495  0.0875    0.4848  0.2751   0.7349
+  frozen_theta/linear_head     internal          0.0517  0.0213  0.0821    0.0092  1.6886   0.0153
+  frozen_theta/linear_head      kddtest          0.0943  0.0079  0.1806    0.0387  1.0846   0.0215
+  frozen_theta/linear_head novel_recall          0.0008 -0.1027  0.1043    0.9839  0.0077   0.9851
+     frozen_theta/mlp_head     internal          0.1269  0.0888  0.1650    0.0008  3.3101   0.0006
+     frozen_theta/mlp_head      kddtest          0.0719 -0.0007  0.1445    0.0514  0.9840   0.0518
+     frozen_theta/mlp_head novel_recall         -0.2444 -0.3864 -0.1024    0.0088 -1.7100   0.0015
+     cotrained/linear_head     internal          0.0921  0.0546  0.1295    0.0024  2.4417   0.0017
+     cotrained/linear_head      kddtest          0.0928  0.0062  0.1794    0.0410  1.0639   0.0231
+     cotrained/linear_head novel_recall         -0.0478 -0.2090  0.1134    0.4564 -0.2947   0.3170
+  reference/logreg_on_xhat     internal          0.0951  0.0586  0.1317    0.0019  2.5861   0.0019
+  reference/logreg_on_xhat      kddtest          0.0590 -0.0146  0.1326    0.0902  0.7958   0.0902
+  reference/logreg_on_xhat novel_recall         -0.1421 -0.2496 -0.0345    0.0215 -1.3118   0.0215
+
+-- ladder increments on internal accuracy (points), mean over seeds
+parity->best_fixed  +3.61
+best_fixed->linear  +1.56
+linear->mlp         +7.52
+parity->cotrained   +9.21
+cotrained vs logreg -0.31
+
+-- across-seed correlation of the parity anchor's metrics (n=5, descriptive)
+              internal  kddtest  novel_recall
+internal           1.0      0.9          -0.3
+kddtest            0.9      1.0           0.1
+novel_recall      -0.3      0.1           1.0
+
+====================================================================================================
+ANCHOR  new protocol vs published [1]
+====================================================================================================
+transcription check, A2 reps=5 recomputed from the 5 printed rows: {'internal': (0.837, 0.013), 'kddtest': (0.683, 0.048), 'novel': (0.617, 0.095)}  printed: {'internal': (0.837, 0.013), 'kddtest': (0.683, 0.048), 'novel': (0.617, 0.095)}
+  metric                                           source  anchor_mean  anchor_sd  published_mean  published_sd    diff   ci_lo  ci_hi  welch_t  welch_df  welch_p  hedges_g
+internal Table 3 (original build, 2000-rec., maxiter 150)       0.8560     0.0294          0.8540        0.0180  0.0020 -0.0349 0.0389   0.1324    6.6251   0.8986    0.0756
+internal   Table A2 reps=5 (independent build, 2000-rec.)       0.8560     0.0294          0.8374        0.0133  0.0186 -0.0174 0.0547   1.2902    5.5757   0.2479    0.7370
+ kddtest Table 3 (original build, 2000-rec., maxiter 150)       0.7045     0.0593          0.7650        0.0490 -0.0605 -0.1404 0.0193  -1.7599    7.7260   0.1178   -1.0054
+ kddtest   Table A2 reps=5 (independent build, 2000-rec.)       0.7045     0.0593          0.6828        0.0476  0.0217 -0.0574 0.1007   0.6372    7.6417   0.5426    0.3640
+   novel Table 3 (original build, 2000-rec., maxiter 150)       0.6210     0.0866          0.6530        0.0620 -0.0320 -0.1439 0.0799  -0.6716    7.2460   0.5226   -0.3837
+   novel   Table A2 reps=5 (independent build, 2000-rec.)       0.6210     0.0866          0.6170        0.0948  0.0040 -0.1286 0.1366   0.0697    7.9355   0.9462    0.0398
+
+logistic regression on x_hat (full training split; deterministic, no seed variance) vs Table 3 LogReg (2000-record subsample)
+  internal  ours 0.9512   published 0.927 ± 0.005   diff +0.0242  (+4.8 published SDs)
+  kddtest   ours 0.7634   published 0.764 ± 0.007   diff -0.0006  (-0.1 published SDs)
+  novel     ours 0.4789   published 0.482 ± 0.017   diff -0.0031  (-0.2 published SDs)
+
+-- depth-sweep replication at the published protocol: exp4 (rho=0) vs Table A2, reps in {1,5,17}
+ reps   metric  new_mean  new_sd  A2_mean  A2_sd    diff  welch_p  paired_p  per_seed_absdiff_max
+    1 internal    0.7883  0.0163   0.7824 0.0132  0.0059   0.5456    0.4064                0.0315
+    1    novel    0.5961  0.0129   0.5812 0.0292  0.0149   0.3396    0.2303                0.0558
+    5 internal    0.8156  0.0171   0.8374 0.0133 -0.0218   0.0559    0.0573                0.0498
+    5    novel    0.5423  0.0788   0.6170 0.0948 -0.0747   0.2135    0.0859                0.1922
+   17 internal    0.8818  0.0136   0.8794 0.0048  0.0024   0.7240    0.7371                0.0213
+   17    novel    0.5878  0.0545   0.5546 0.0575  0.0332   0.3761    0.2173                0.0997
+per-seed internal accuracy, exp4 vs A2:
+  reps= 1  new [0.778, 0.806, 0.775, 0.807, 0.777]   A2 [0.778, 0.806, 0.776, 0.775, 0.777]
+  reps= 5  new [0.839, 0.797, 0.802, 0.814, 0.825]   A2 [0.842, 0.847, 0.814, 0.844, 0.84]
+  reps=17  new [0.891, 0.892, 0.883, 0.859, 0.884]   A2 [0.884, 0.874, 0.884, 0.88, 0.875]
+
+====================================================================================================
+EXP2  encoded geometry: separability AUC and fidelity-kernel accuracy (5 seeds; seed = subsample draw)
+====================================================================================================
+rows: 90  seeds: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4)]  C: [np.float64(1.0), np.float64(100.0)]
+AUC identical across C for every (seed,N,encoding): True
+    C  N    encoding  qubits  auc_mean  auc_sd  acc_mean  acc_sd  nsv_mean
+  1.0  4   amplitude       2    0.6105  0.0075    0.8939  0.0029     646.6
+  1.0  4 angle_phase       4    0.8278  0.0084    0.9328  0.0041     305.4
+  1.0  4    angle_ry       4    0.8019  0.0071    0.9312  0.0043     329.4
+  1.0  8   amplitude       3    0.5580  0.0047    0.9422  0.0052     384.0
+  1.0  8 angle_phase       8    0.7953  0.0069    0.9656  0.0042     214.0
+  1.0  8    angle_ry       8    0.7598  0.0039    0.9541  0.0044     264.6
+  1.0 16   amplitude       4    0.5470  0.0048    0.9606  0.0033     322.2
+  1.0 16 angle_phase      16    0.7837  0.0084    0.9670  0.0040     215.6
+  1.0 16    angle_ry      16    0.7550  0.0042    0.9573  0.0039     241.6
+100.0  4   amplitude       2    0.6105  0.0075    0.8929  0.0044     594.6
+100.0  4 angle_phase       4    0.8278  0.0084    0.9469  0.0034     247.4
+100.0  4    angle_ry       4    0.8019  0.0071    0.9328  0.0033     282.4
+100.0  8   amplitude       3    0.5580  0.0047    0.9679  0.0030     189.8
+100.0  8 angle_phase       8    0.7953  0.0069    0.9807  0.0044      97.4
+100.0  8    angle_ry       8    0.7598  0.0039    0.9783  0.0043     129.8
+100.0 16   amplitude       4    0.5470  0.0048    0.9734  0.0030     138.8
+100.0 16 angle_phase      16    0.7837  0.0084    0.9836  0.0041     106.2
+100.0 16    angle_ry      16    0.7550  0.0042    0.9803  0.0022     119.4
+
+-- paired differences (same seed = same subsample): angle - amplitude
+    C  N                contrast           metric    diff   ci_lo  ci_hi  paired_p       dz
+  1.0  4    angle_ry - amplitude separability_auc  0.1914  0.1860 0.1969    0.0000  34.7295
+  1.0  4    angle_ry - amplitude   kernel_svm_acc  0.0373  0.0292 0.0454    0.0002   4.5732
+  1.0  4 angle_phase - amplitude separability_auc  0.2174  0.2117 0.2230    0.0000  38.3963
+  1.0  4 angle_phase - amplitude   kernel_svm_acc  0.0389  0.0312 0.0466    0.0001   5.0285
+  1.0  8    angle_ry - amplitude separability_auc  0.2018  0.1971 0.2065    0.0000  42.4184
+  1.0  8    angle_ry - amplitude   kernel_svm_acc  0.0119  0.0098 0.0140    0.0001   5.5664
+  1.0  8 angle_phase - amplitude separability_auc  0.2373  0.2315 0.2431    0.0000  40.6457
+  1.0  8 angle_phase - amplitude   kernel_svm_acc  0.0234  0.0221 0.0247    0.0000  18.2688
+  1.0 16    angle_ry - amplitude separability_auc  0.2080  0.2061 0.2100    0.0000 107.1543
+  1.0 16    angle_ry - amplitude   kernel_svm_acc -0.0033 -0.0087 0.0021    0.1653  -0.6065
+  1.0 16 angle_phase - amplitude separability_auc  0.2367  0.2314 0.2420    0.0000  44.1237
+  1.0 16 angle_phase - amplitude   kernel_svm_acc  0.0064  0.0014 0.0114    0.0239   1.2682
+100.0  4    angle_ry - amplitude separability_auc  0.1914  0.1860 0.1969    0.0000  34.7295
+100.0  4    angle_ry - amplitude   kernel_svm_acc  0.0399  0.0316 0.0482    0.0002   4.8026
+100.0  4 angle_phase - amplitude separability_auc  0.2174  0.2117 0.2230    0.0000  38.3963
+100.0  4 angle_phase - amplitude   kernel_svm_acc  0.0540  0.0454 0.0626    0.0001   6.2112
+100.0  8    angle_ry - amplitude separability_auc  0.2018  0.1971 0.2065    0.0000  42.4184
+100.0  8    angle_ry - amplitude   kernel_svm_acc  0.0104  0.0058 0.0150    0.0033   2.2397
+100.0  8 angle_phase - amplitude separability_auc  0.2373  0.2315 0.2431    0.0000  40.6457
+100.0  8 angle_phase - amplitude   kernel_svm_acc  0.0128  0.0078 0.0178    0.0021   2.5441
+100.0 16    angle_ry - amplitude separability_auc  0.2080  0.2061 0.2100    0.0000 107.1543
+100.0 16    angle_ry - amplitude   kernel_svm_acc  0.0069  0.0032 0.0106    0.0065   1.8608
+100.0 16 angle_phase - amplitude separability_auc  0.2367  0.2314 0.2420    0.0000  44.1237
+100.0 16 angle_phase - amplitude   kernel_svm_acc  0.0102  0.0056 0.0148    0.0036   2.1946
+
+-- within-encoding change N=4 -> N=16 (paired across seeds)
+    C    encoding           metric  diff_16_minus_4   ci_lo   ci_hi  paired_p       dz
+  1.0   amplitude separability_auc          -0.0635 -0.0698 -0.0571    0.0000  -9.9277
+  1.0   amplitude   kernel_svm_acc           0.0667  0.0593  0.0741    0.0000   8.9779
+  1.0    angle_ry separability_auc          -0.0469 -0.0511 -0.0427    0.0000 -11.1383
+  1.0    angle_ry   kernel_svm_acc           0.0261  0.0198  0.0324    0.0003   4.1308
+  1.0 angle_phase separability_auc          -0.0441 -0.0451 -0.0432    0.0000 -46.0570
+  1.0 angle_phase   kernel_svm_acc           0.0342  0.0272  0.0412    0.0002   4.8310
+100.0   amplitude separability_auc          -0.0635 -0.0698 -0.0571    0.0000  -9.9277
+100.0   amplitude   kernel_svm_acc           0.0805  0.0725  0.0885    0.0000   9.9668
+100.0    angle_ry separability_auc          -0.0469 -0.0511 -0.0427    0.0000 -11.1383
+100.0    angle_ry   kernel_svm_acc           0.0475  0.0425  0.0525    0.0000   9.4266
+100.0 angle_phase separability_auc          -0.0441 -0.0451 -0.0432    0.0000 -46.0570
+100.0 angle_phase   kernel_svm_acc           0.0367  0.0339  0.0395    0.0000  12.8752
+
+-- C=1 -> C=100 (does the 'ceiling' move?)  mean change in kernel accuracy, points
+  amplitude    N= 4  -0.10 pts  (p=0.5790)
+  amplitude    N= 8  +2.57 pts  (p=0.0002)
+  amplitude    N=16  +1.28 pts  (p=0.0002)
+  angle_ry     N= 4  +0.16 pts  (p=0.1548)
+  angle_ry     N= 8  +2.42 pts  (p=0.0000)
+  angle_ry     N=16  +2.30 pts  (p=0.0000)
+  angle_phase  N= 4  +1.41 pts  (p=0.0055)
+  angle_phase  N= 8  +1.51 pts  (p=0.0002)
+  angle_phase  N=16  +1.66 pts  (p=0.0001)
+
+-- AUC vs published Table 5 (mean ± SD, 5 seeds), this build minus published
+   encoding  N  this_mean  this_sd  pub_mean  pub_sd    diff  welch_p
+  amplitude  4     0.6105   0.0075     0.647   0.018 -0.0365   0.0074
+  amplitude  8     0.5580   0.0047     0.563   0.018 -0.0050   0.5755
+  amplitude 16     0.5470   0.0048     0.560   0.018 -0.0130   0.1845
+   angle_ry  4     0.8019   0.0071     0.763   0.014  0.0389   0.0015
+   angle_ry  8     0.7598   0.0039     0.752   0.018  0.0078   0.3944
+   angle_ry 16     0.7550   0.0042     0.749   0.016  0.0060   0.4560
+angle_phase  4     0.8278   0.0084     0.787   0.017  0.0408   0.0032
+angle_phase  8     0.7953   0.0069     0.763   0.021  0.0323   0.0232
+angle_phase 16     0.7837   0.0084     0.762   0.020  0.0217   0.0720
+
+====================================================================================================
+EXP3  norm restoration
+====================================================================================================
+models: ['auc_of_norm_alone', 'logreg_raw_x', 'logreg_xhat', 'logreg_xhat+norm', 'vqc_amplitude+norm_5q_p25', 'vqc_amplitude_4q_p24', 'vqc_shuffled_norm_5q_p25']
+NOTE: results CSV has no 'vqc_amplitude_4q_reps4' arm although exp3_norm_restoration.py defines it -> CSV was produced by an earlier version of the script.
+                    model  n  internal_mean  internal_sd  kddtest_mean  kddtest_sd  novel_recall_mean  novel_recall_sd
+        auc_of_norm_alone  5         0.8696       0.0000        0.7389      0.0000                NaN              NaN
+             logreg_raw_x  5         0.9563       0.0000        0.7533      0.0000             0.4038           0.0000
+              logreg_xhat  5         0.9512       0.0000        0.7634      0.0000             0.4789           0.0000
+         logreg_xhat+norm  5         0.9494       0.0000        0.7637      0.0000             0.4715           0.0000
+vqc_amplitude+norm_5q_p25  5         0.8442       0.0398        0.6747      0.0958             0.5453           0.0766
+     vqc_amplitude_4q_p24  5         0.8560       0.0294        0.7045      0.0593             0.6210           0.0866
+ vqc_shuffled_norm_5q_p25  5         0.8237       0.0183        0.6557      0.0248             0.5782           0.0768
+
+-- the deleted scalar: AUC of log1p(||x||) alone (deterministic, identical across seeds)
+   internal AUC 0.8696   KDDTest+ AUC 0.7389
+
+-- classical ablation: adding the norm back to logistic regression on x_hat (deterministic)
+   internal      x_hat 0.9512  x_hat+norm 0.9494 (-0.18 pts)  raw x 0.9563 (+0.52 pts)
+   kddtest       x_hat 0.7634  x_hat+norm 0.7637 (+0.03 pts)  raw x 0.7533 (-1.02 pts)
+   novel_recall  x_hat 0.4789  x_hat+norm 0.4715 (-0.75 pts)  raw x 0.4038 (-7.52 pts)
+
+-- quantum ablation, paired by seed (all arms share seed -> same theta0 draw within an arm family)
+                                                             contrast       metric    diff   ci_lo   ci_hi  paired_p  welch_p      dz
+                  norm5q - shuffled5q (does the norm carry the gain?)     internal  0.0205 -0.0200  0.0611    0.2329   0.3376  0.5024
+                  norm5q - shuffled5q (does the norm carry the gain?)      kddtest  0.0189 -0.0718  0.1097    0.5937   0.6884  0.2071
+                  norm5q - shuffled5q (does the norm carry the gain?) novel_recall -0.0329 -0.1178  0.0519    0.3418   0.5163 -0.3856
+norm5q - base4q (does restoring the norm beat the published circuit?)     internal -0.0118 -0.0445  0.0208    0.3713   0.6088 -0.3600
+norm5q - base4q (does restoring the norm beat the published circuit?)      kddtest -0.0298 -0.0853  0.0257    0.2104   0.5737 -0.5331
+norm5q - base4q (does restoring the norm beat the published circuit?) novel_recall -0.0757 -0.1631  0.0116    0.0738   0.1817 -0.8610
+                 shuffled5q - base4q (price of the extra qubit alone)     internal -0.0323 -0.0607 -0.0040    0.0341   0.0770 -1.1316
+                 shuffled5q - base4q (price of the extra qubit alone)      kddtest -0.0487 -0.0928 -0.0046    0.0374   0.1469 -1.0975
+                 shuffled5q - base4q (price of the extra qubit alone) novel_recall -0.0428 -0.1939  0.1083    0.4755   0.4328 -0.2814
+
+-- base 4q arm of exp3 is the same computation as exp1 parity? (per-seed identical)
+   max |exp3 base - exp1 parity| internal: 0.0
+   max |exp3 base - exp1 parity| kddtest : 0.0
+
+====================================================================================================
+EXP4  memorisation capacity vs novel-signature recall
+====================================================================================================
+models: ['logreg_17p', 'mlp1_19p', 'mlp4_73p', 'vqc_reps1', 'vqc_reps17', 'vqc_reps5']  rho: [np.float64(0.0), np.float64(0.25), np.float64(0.5), np.float64(1.0)]  seeds: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4)]
+training accuracy on (corrupted) labels, mean over seeds:
+rho           0.00    0.25    0.50    1.00
+model                                     
+logreg_17p  0.9489  0.8288  0.7183  0.5329
+mlp1_19p    0.7889  0.7058  0.6295  0.5109
+mlp4_73p    0.9612  0.8413  0.7259  0.5232
+vqc_reps1   0.7987  0.7366  0.6623  0.5220
+vqc_reps17  0.8921  0.8047  0.7111  0.5398
+vqc_reps5   0.8220  0.7711  0.6876  0.5300
+
+excess fit over a signal-only learner (memorisation) and clean-data metrics:
+              0.25     0.5     1.0  mean_excess  novel_recall  internal
+model                                                                  
+logreg_17p -0.0079 -0.0062  0.0329       0.0063        0.4957    0.9467
+mlp1_19p   -0.0109 -0.0150  0.0109      -0.0050        0.2514    0.7865
+mlp4_73p   -0.0046 -0.0047  0.0232       0.0046        0.4124    0.9582
+vqc_reps1   0.0126  0.0129  0.0220       0.0158        0.5961    0.7883
+vqc_reps17  0.0106  0.0151  0.0398       0.0218        0.5878    0.8818
+vqc_reps5   0.0296  0.0266  0.0300       0.0287        0.5423    0.8156
+
+per-model memorisation, mean ± SD over seeds:
+              mean     std
+model                     
+logreg_17p  0.0063  0.0073
+mlp1_19p   -0.0050  0.0109
+mlp4_73p    0.0046  0.0059
+vqc_reps1   0.0158  0.0158
+vqc_reps17  0.0218  0.0090
+vqc_reps5   0.0287  0.0135
+
+Spearman(memorisation, novel recall) across the 6 models: rho=0.771 p=0.072  spread=0.034
+
+within the VQC family (reps 1/5/17):
+            mean_excess  novel_recall  internal
+model                                          
+vqc_reps1        0.0158        0.5961    0.7883
+vqc_reps5        0.0287        0.5423    0.8156
+vqc_reps17       0.0218        0.5878    0.8818
+per-seed novel recall, VQC by reps:
+model  vqc_reps1  vqc_reps17  vqc_reps5
+seed                                   
+0          0.578       0.568      0.628
+1          0.614       0.605      0.593
+2          0.594       0.503      0.516
+3          0.594       0.640      0.550
+4          0.600       0.623      0.424
+  novel recall vqc_reps5 - vqc_reps1: -5.38 pts  95%CI[-15.71,+4.94] p=0.221 dz=-0.52
+  novel recall vqc_reps17 - vqc_reps5: +4.55 pts  95%CI[-8.11,+17.21] p=0.375 dz=0.36
+  novel recall vqc_reps17 - vqc_reps1: -0.83 pts  95%CI[-7.27,+5.61] p=0.738 dz=-0.13
